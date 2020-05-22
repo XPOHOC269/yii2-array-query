@@ -142,7 +142,7 @@ class QueryProcessor extends Component
         }
 
         if (isset($condition[0])) { // operator format: operator, operand 1, operand 2, ...
-            $operator = strtoupper($condition[0]);
+            $operator = mb_strtoupper($condition[0]);
             if (isset($this->conditionFilters[$operator])) {
                 $method = $this->conditionFilters[$operator];
             } else {
@@ -381,8 +381,8 @@ class QueryProcessor extends Component
             $values = [$values];
         }
 
-        $not = (stripos($operator, 'NOT ') !== false);
-        $or = (stripos($operator, 'OR ') !== false);
+        $not = (mb_stripos($operator, 'NOT ') !== false);
+        $or = (mb_stripos($operator, 'OR ') !== false);
 
         if ($not) {
             if (empty($values)) {
@@ -392,7 +392,7 @@ class QueryProcessor extends Component
             if ($or) {
                 return array_filter($data, function ($row) use ($column, $values) {
                     foreach ($values as $value) {
-                        if (stripos($row[$column], $value) === false) {
+                        if (mb_stripos($row[$column], $value) === false) {
                             return true;
                         }
                     }
@@ -403,7 +403,7 @@ class QueryProcessor extends Component
 
             return array_filter($data, function ($row) use ($column, $values) {
                 foreach ($values as $value) {
-                    if (stripos($row[$column], $value) !== false) {
+                    if (mb_stripos($row[$column], $value) !== false) {
                         return false;
                     }
                 }
@@ -419,7 +419,7 @@ class QueryProcessor extends Component
         if ($or) {
             return array_filter($data, function ($row) use ($column, $values) {
                 foreach ($values as $value) {
-                    if (stripos($row[$column], $value) !== false) {
+                    if (mb_stripos($row[$column], $value) !== false) {
                         return true;
                     }
                 }
@@ -430,7 +430,7 @@ class QueryProcessor extends Component
 
         return array_filter($data, function ($row) use ($column, $values) {
             foreach ($values as $value) {
-                if (stripos($row[$column], $value) === false) {
+                if (mb_stripos($row[$column], $value) === false) {
                     return false;
                 }
             }
