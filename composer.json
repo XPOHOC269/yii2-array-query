@@ -28,9 +28,9 @@
         }
     },
     "repositories": [
-        {
-            "type": "composer",
-            "url": "https://asset-packagist.org"
-        }
+      {
+        "type": "vcs",
+        "url": "https://github.com/XPOHOC269/yii2-array-query"
+      }
     ]
 }
