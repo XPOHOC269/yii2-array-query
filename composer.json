@@ -1,5 +1,5 @@
 {
-    "name": "yii2mod/yii2-array-query",
+    "name": "xpohoc269/yii2-array-query",
     "description": "Yii2 component that allows for searching/filtering the elements of an array.",
     "type": "yii2-extension",
     "keywords": [
